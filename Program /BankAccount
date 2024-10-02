@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class BankAccount {
+    Scanner scanner = new Scanner(System.in);
+
+    double saldoAtual;
+    
+    public void saque(double saque) {
+
+        double valor1;
+
+        if ( saque > 0){
+
+            valor1 = saldoAtual - saque;
+            System.out.println("Você sacou " + saque + ". Seu saldo agora é: " + valor1);
+
+        }
+    
+        else{
+
+            System.out.println("voce nao possui nada na conta, logo, nao pode sacar nada");
+        }
+
+    }
+
+    // Método para definir o saldo atual
+    public void setSaldoAtual(double saldoAtual) {
+        this.saldoAtual = saldoAtual;
+    }
+
+    // Método para obter o saldo atual
+    public double getSaldoAtual() {
+        return this.saldoAtual;
+    }
+
+    public void deposito(double deposito){
+
+        if( deposito < 0){
+
+            System.out.println("Voce nao pode depositar nada no momento");
+        }
+
+        else{
+
+            double valor = saldoAtual + deposito;
+     
+             System.out.println("Voce depositou " + deposito + ". Seu saldo agora é: "+ valor);
+             
+        }
+            
+    }
+}
