@@ -1,0 +1,84 @@
+//Escreva uma classe chamada Bank_Account que armazena o saldo atual
+da conta e contém dois métodos, um para saque e outro para depósito da
+conta. Defina um terceiro método que retorne o saldo atual.
+Crie uma segunda classe Program que possui o método main que instancie
+duas contas bancárias.
+
+import java.util.Scanner;
+
+public class Program{
+    public static void main(String[] args) {
+     Scanner scanner =  new Scanner (System.in);
+
+       BankAccount conta1 = new BankAccount();
+       BankAccount conta2 = new BankAccount();
+
+       System.out.println("operacao da conta 1:");
+       conta1.saldoAtual = 300000;
+       conta1.deposito (10000);
+       conta1.saque (100);
+
+       System.out.println("operaçao da conta 2:");
+       conta2.saldoAtual = 4000;
+       conta2.deposito(4000);
+       conta2.saque(200);
+
+       scanner.close();
+        
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class BankAccount {
+    Scanner scanner = new Scanner(System.in);
+
+    double saldoAtual;
+    
+    public void saque(double saque) {
+
+        double valor1;
+
+        if ( saque > 0){
+
+            valor1 = saldoAtual - saque;
+            System.out.println("Você sacou " + saque + ". Seu saldo agora é: " + valor1);
+
+        }
+    
+        else{
+
+            System.out.println("voce nao possui nada na conta, logo, nao pode sacar nada");
+        }
+
+    }
+
+    // Método para definir o saldo atual
+    public void setSaldoAtual(double saldoAtual) {
+        this.saldoAtual = saldoAtual;
+    }
+
+    // Método para obter o saldo atual
+    public double getSaldoAtual() {
+        return this.saldoAtual;
+    }
+
+    public void deposito(double deposito){
+
+        if( deposito < 0){
+
+            System.out.println("Voce nao pode depositar nada no momento");
+        }
+
+        else{
+
+            double valor = saldoAtual + deposito;
+     
+             System.out.println("Voce depositou " + deposito + ". Seu saldo agora é: "+ valor);
+             
+        }
+            
+    }
+}
